@@ -128,11 +128,17 @@ pip install -r requirements.txt
 
 ### 3. Run the End-to-End Pipeline
 ```bash
-# Execute end-to-end ingestion and transformation
+# On Windows (PowerShell):
+.\run.ps1 run --mode mock --max-records 400 --engine duckdb
+
+# Or on Windows (Command Prompt):
+run.bat run --mode mock --max-records 400 --engine duckdb
+
+# Or directly with Python:
 python src/pipeline.py run --mode mock --max-records 400 --engine duckdb
 
-# Check pipeline watermark state
-python src/pipeline.py status
+# Check pipeline watermark state:
+.\run.ps1 status
 ```
 
 ### 4. Launch the React & JavaScript Intelligence Dashboard
