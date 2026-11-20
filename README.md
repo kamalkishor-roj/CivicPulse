@@ -206,7 +206,9 @@ GCP_PROJECT_ID=my-gcp-infrastructure-project
    - Identifies specific city wards with recurring infrastructure breakdowns, directing preventive maintenance crews before citizen complaints escalate.
 4. **SCD Type 2 Lifecycle Visualizer:**
    - Allows users to select any individual incident ID to view its complete operational journey:
-     $$\text{Incident 101} \longrightarrow \underbrace{\text{Open}}_{\text{24h (v1)}} \longrightarrow \underbrace{\text{In Progress}}_{\text{72h (v2)}} \longrightarrow \underbrace{\text{Completed}}_{\text{Active (v3)}}$$
+     $$$
+\text{Incident 101} \rightarrow \underbrace{\text{Open}}_{\text{24h (v1)}} \rightarrow \underbrace{\text{In Progress}}_{\text{72h (v2)}} \rightarrow \underbrace{\text{Completed}}_{\text{Active (v3)}}
+$$
 5. **Reopened Complaint Analysis:**
    - Tracks premature closures where tickets were closed by municipal crews but subsequently reopened by citizens.
 
