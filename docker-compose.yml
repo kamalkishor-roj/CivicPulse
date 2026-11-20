@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  civicpulse-dashboard:
+    build: .
+    container_name: civicpulse_dashboard
+    ports:
+      - "8000:8000"
+    environment:
+      - STORAGE_BACKEND=local
+      - PROCESSING_ENGINE=duckdb
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    command: ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  civicpulse-pipeline-cron:
+    build: .
+    container_name: civicpulse_pipeline
+    environment:
+      - STORAGE_BACKEND=local
+      - PROCESSING_ENGINE=duckdb
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    command: ["python", "src/pipeline.py", "run", "--mode", "mock", "--max-records", "300"]

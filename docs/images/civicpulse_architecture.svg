@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="emeraldGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" rx="16" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Header Banner -->
+  <g transform="translate(40, 30)">
+    <rect width="1120" height="60" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="25" y="38" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5">
+      🏙️ CivicPulse <tspan fill="#94a3b8" font-weight="400">| Public Infrastructure Intelligence Architecture</tspan>
+    </text>
+    <rect x="940" y="16" width="155" height="28" rx="14" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <circle cx="955" cy="30" r="4" fill="#10b981"/>
+    <text x="968" y="34" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="0.5">GCP &amp; LAKEHOUSE</text>
+  </g>
+
+  <!-- 1. Source Layer -->
+  <g transform="translate(40, 115)">
+    <rect width="200" height="515" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="15" y="15" width="170" height="32" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+    <text x="25" y="36" fill="#60a5fa" font-family="sans-serif" font-size="12" font-weight="700">1. DATA SOURCE</text>
+
+    <!-- Content -->
+    <rect x="15" y="65" width="170" height="95" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="90" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="700">Chicago 311</text>
+    <text x="25" y="108" fill="#94a3b8" font-family="sans-serif" font-size="10.5">Open Data Portal (SODA)</text>
+    <text x="25" y="125" fill="#64748b" font-family="monospace" font-size="9.5">Dataset: v6vf-nfxy</text>
+    <text x="25" y="142" fill="#34d399" font-family="sans-serif" font-size="10">● Live Municipal Stream</text>
+
+    <rect x="15" y="175" width="170" height="150" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="200" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Complaint Types</text>
+    <text x="25" y="222" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Potholes (CDOT)</text>
+    <text x="25" y="242" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Garbage Carts (2FM)</text>
+    <text x="25" y="262" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Water Leaks (DWM)</text>
+    <text x="25" y="282" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Streetlight Outages</text>
+    <text x="25" y="302" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Fly Dumping</text>
+
+    <rect x="15" y="340" width="170" height="155" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="365" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Operational Schema</text>
+    <text x="25" y="388" fill="#94a3b8" font-family="monospace" font-size="9.5">sr_number (ID)</text>
+    <text x="25" y="408" fill="#94a3b8" font-family="monospace" font-size="9.5">status (Lifecycle)</text>
+    <text x="25" y="428" fill="#94a3b8" font-family="monospace" font-size="9.5">created_date</text>
+    <text x="25" y="448" fill="#94a3b8" font-family="monospace" font-size="9.5">last_modified_date</text>
+    <text x="25" y="468" fill="#94a3b8" font-family="monospace" font-size="9.5">latitude, longitude</text>
+  </g>
+
+  <!-- Flow Arrow 1 -->
+  <path d="M 245 372 L 275 372" stroke="#3b82f6" stroke-width="3" stroke-dasharray="6,4" fill="none"/>
+  <polygon points="275,367 285,372 275,377" fill="#3b82f6"/>
+
+  <!-- 2. Ingestion & Raw Staging -->
+  <g transform="translate(290, 115)">
+    <rect width="210" height="515" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="15" y="15" width="180" height="32" rx="6" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1"/>
+    <text x="25" y="36" fill="#22d3ee" font-family="sans-serif" font-size="12" font-weight="700">2. INGESTION &amp; RAW</text>
+
+    <rect x="15" y="65" width="180" height="135" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="90" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Python Ingestion</text>
+    <text x="25" y="110" fill="#38bdf8" font-family="sans-serif" font-size="10.5">● API Pagination ($limit/$offset)</text>
+    <text x="25" y="130" fill="#38bdf8" font-family="sans-serif" font-size="10.5">● Exponential Backoff &amp; Jitter</text>
+    <text x="25" y="150" fill="#38bdf8" font-family="sans-serif" font-size="10.5">● Rate Limit Auto-Throttling</text>
+    <text x="25" y="170" fill="#38bdf8" font-family="sans-serif" font-size="10.5">● Backfill Window Engine</text>
+
+    <rect x="15" y="215" width="180" height="135" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="240" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Watermark State</text>
+    <text x="25" y="260" fill="#94a3b8" font-family="monospace" font-size="9">watermark_state.json</text>
+    <text x="25" y="280" fill="#a78bfa" font-family="sans-serif" font-size="10.5">● Atomic Checkpoint Commit</text>
+    <text x="25" y="300" fill="#a78bfa" font-family="sans-serif" font-size="10.5">● Zero Record Loss on Crash</text>
+    <text x="25" y="320" fill="#a78bfa" font-family="sans-serif" font-size="10.5">● Resumes from checkpoint</text>
+
+    <rect x="15" y="365" width="180" height="130" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="390" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Immutable Raw Lake</text>
+    <text x="25" y="410" fill="#f59e0b" font-family="sans-serif" font-size="10.5">GCS / Local Partitioning</text>
+    <text x="25" y="430" fill="#94a3b8" font-family="monospace" font-size="8.5">raw/year=YYYY/month=MM/</text>
+    <text x="25" y="445" fill="#94a3b8" font-family="monospace" font-size="8.5">day=DD/batch_*.json</text>
+    <text x="25" y="468" fill="#34d399" font-family="sans-serif" font-size="10">● Tamper-proof snapshots</text>
+  </g>
+
+  <!-- Flow Arrow 2 -->
+  <path d="M 505 372 L 535 372" stroke="#06b6d4" stroke-width="3" stroke-dasharray="6,4" fill="none"/>
+  <polygon points="535,367 545,372 535,377" fill="#06b6d4"/>
+
+  <!-- 3. Transformation Layer -->
+  <g transform="translate(550, 115)">
+    <rect width="220" height="515" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="15" y="15" width="190" height="32" rx="6" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="25" y="36" fill="#c084fc" font-family="sans-serif" font-size="12" font-weight="700">3. TRANSFORMATION</text>
+
+    <rect x="15" y="65" width="190" height="95" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+    <text x="25" y="88" fill="#f87171" font-family="sans-serif" font-size="12" font-weight="700">Data Quality Firewall</text>
+    <text x="25" y="106" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Chicago Bounding Box</text>
+    <text x="25" y="123" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Temporal Logic (closed &ge; create)</text>
+    <text x="25" y="142" fill="#fb7185" font-family="sans-serif" font-size="10">↳ Quarantine DLQ routing</text>
+
+    <rect x="15" y="175" width="190" height="95" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="198" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Change Detection</text>
+    <text x="25" y="218" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• SHA-256 Fingerprinting</text>
+    <text x="25" y="236" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Mutation tracking (status)</text>
+    <text x="25" y="254" fill="#cbd5e1" font-family="sans-serif" font-size="10.5">• Reopened incident flag</text>
+
+    <rect x="15" y="285" width="190" height="105" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+    <text x="25" y="308" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="700">SCD Type 2 Engine</text>
+    <text x="25" y="328" fill="#cbd5e1" font-family="sans-serif" font-size="10">• Tracks complete lifecycle</text>
+    <text x="25" y="345" fill="#cbd5e1" font-family="sans-serif" font-size="10">• Effective start/end dates</text>
+    <text x="25" y="362" fill="#cbd5e1" font-family="sans-serif" font-size="10">• Versioning (v1, v2, v3)</text>
+    <text x="25" y="379" fill="#cbd5e1" font-family="sans-serif" font-size="10">• Out-of-order resequencing</text>
+
+    <rect x="15" y="405" width="190" height="90" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="25" y="428" fill="#f8fafc" font-family="sans-serif" font-size="12" font-weight="700">Engines: PySpark &amp; DuckDB</text>
+    <text x="25" y="448" fill="#94a3b8" font-family="sans-serif" font-size="10.5">• Window Functions / LEAD()</text>
+    <text x="25" y="468" fill="#94a3b8" font-family="sans-serif" font-size="10.5">• High-throughput batch</text>
+  </g>
+
+  <!-- Flow Arrow 3 -->
+  <path d="M 775 372 L 805 372" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="6,4" fill="none"/>
+  <polygon points="805,367 815,372 805,377" fill="#8b5cf6"/>
+
+  <!-- 4. Medallion Warehouse -->
+  <g transform="translate(820, 115)">
+    <rect width="180" height="515" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="15" y="15" width="150" height="32" rx="6" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+    <text x="25" y="36" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="700">4. WAREHOUSE</text>
+
+    <rect x="15" y="65" width="150" height="120" rx="8" fill="#1e293b" stroke="#b45309" stroke-width="1.2"/>
+    <text x="25" y="90" fill="#f59e0b" font-family="sans-serif" font-size="12" font-weight="700">BRONZE</text>
+    <text x="25" y="112" fill="#cbd5e1" font-family="sans-serif" font-size="10">Raw payload tables</text>
+    <text x="25" y="130" fill="#94a3b8" font-family="sans-serif" font-size="9.5">• Ingestion timestamps</text>
+    <text x="25" y="148" fill="#94a3b8" font-family="sans-serif" font-size="9.5">• Batch UUID tracking</text>
+    <text x="25" y="166" fill="#94a3b8" font-family="sans-serif" font-size="9.5">• Date partitioning</text>
+
+    <rect x="15" y="200" width="150" height="145" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2"/>
+    <text x="25" y="225" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="700">SILVER</text>
+    <text x="25" y="247" fill="#cbd5e1" font-family="sans-serif" font-size="10">Cleansed entities</text>
+    <text x="25" y="265" fill="#94a3b8" font-family="sans-serif" font-size="9.5">• Deduplicated requests</text>
+    <text x="25" y="285" fill="#e2e8f0" font-family="sans-serif" font-size="11" font-weight="700">dim_status_history</text>
+    <text x="25" y="303" fill="#34d399" font-family="sans-serif" font-size="9.5">• SCD Type 2 table</text>
+    <text x="25" y="321" fill="#94a3b8" font-family="sans-serif" font-size="9.5">• Duration in status</text>
+
+    <rect x="15" y="360" width="150" height="135" rx="8" fill="#1e293b" stroke="#eab308" stroke-width="1.2"/>
+    <text x="25" y="385" fill="#facc15" font-family="sans-serif" font-size="12" font-weight="700">GOLD MARTS</text>
+    <text x="25" y="407" fill="#fde047" font-family="sans-serif" font-size="9.5">• Resolution Velocity</text>
+    <text x="25" y="425" fill="#fde047" font-family="sans-serif" font-size="9.5">• Agency Backlog Tiers</text>
+    <text x="25" y="443" fill="#fde047" font-family="sans-serif" font-size="9.5">• Failure Hotspots</text>
+    <text x="25" y="461" fill="#fde047" font-family="sans-serif" font-size="9.5">• Recidivism / Reopens</text>
+    <text x="25" y="479" fill="#fde047" font-family="sans-serif" font-size="9.5">• Bottleneck analysis</text>
+  </g>
+
+  <!-- Flow Arrow 4 -->
+  <path d="M 1005 372 L 1030 372" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4" fill="none"/>
+  <polygon points="1030,367 1040,372 1030,377" fill="#f59e0b"/>
+
+  <!-- 5. React Dashboard -->
+  <g transform="translate(1045, 115)">
+    <rect width="115" height="515" rx="12" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="10" y="15" width="95" height="32" rx="6" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1"/>
+    <text x="18" y="36" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="700">5. REACT</text>
+
+    <text x="14" y="85" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="800">React 18 SPA</text>
+    <text x="14" y="105" fill="#38bdf8" font-family="sans-serif" font-size="10">+ JavaScript</text>
+
+    <rect x="10" y="130" width="95" height="85" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="16" y="152" fill="#34d399" font-family="sans-serif" font-size="10" font-weight="700">Leaflet Map</text>
+    <text x="16" y="170" fill="#94a3b8" font-family="sans-serif" font-size="8.5">OpenStreetMap</text>
+    <text x="16" y="188" fill="#10b981" font-family="sans-serif" font-size="8.5 font-weight="700">NO API KEY</text>
+    <text x="16" y="202" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Live Pins &amp; Popups</text>
+
+    <rect x="10" y="230" width="95" height="85" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="16" y="252" fill="#60a5fa" font-family="sans-serif" font-size="10" font-weight="700">SCD2 Journey</text>
+    <text x="16" y="270" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Step-by-step</text>
+    <text x="16" y="286" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Lifecycle cards</text>
+    <text x="16" y="302" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Durations in hrs</text>
+
+    <rect x="10" y="330" width="95" height="85" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="16" y="352" fill="#a78bfa" font-family="sans-serif" font-size="10" font-weight="700">FastAPI</text>
+    <text x="16" y="370" fill="#94a3b8" font-family="sans-serif" font-size="8.5">REST Endpoints</text>
+    <text x="16" y="386" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Port 8000</text>
+    <text x="16" y="402" fill="#34d399" font-family="sans-serif" font-size="8.5">Dynamic Filters</text>
+
+    <rect x="10" y="430" width="95" height="65" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="16" y="452" fill="#facc15" font-family="sans-serif" font-size="10" font-weight="700">Tailwind</text>
+    <text x="16" y="470" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Executive UI</text>
+    <text x="16" y="486" fill="#94a3b8" font-family="sans-serif" font-size="8.5">Dark Command</text>
+  </g>
+</svg>

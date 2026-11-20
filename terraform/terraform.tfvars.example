@@ -1,0 +1,7 @@
+project_id          = "my-gcp-infrastructure-project"
+region              = "us-central1"
+bigquery_location   = "US"
+raw_bucket_name     = "civicpulse-chicago311-raw-lake-prod"
+bronze_dataset_name = "civicpulse_bronze"
+silver_dataset_name = "civicpulse_silver"
+gold_dataset_name   = "civicpulse_gold"
