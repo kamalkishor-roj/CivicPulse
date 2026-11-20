@@ -30,65 +30,12 @@ Instead of merely displaying total counts, **CivicPulse** collects raw operation
 
 ## 🏗️ System Architecture
 
-![CivicPulse Architecture](docs/images/civicpulse_architecture.svg)
-
-```
-                                  CIVICPULSE DATA PLATFORM
-+-----------------------------------------------------------------------------------------------+
-| INGESTION LAYER (Python)                                                                      |
-| - Chicago Open311 / Socrata API Connector (Dataset: v6vf-nfxy)                                 |
-| - Watermark-based Incremental Extraction: $where=last_modified_date > $watermark               |
-| - API Pagination ($limit, $offset) with Adaptive Rate Limiting & Exponential Backoff           |
-| - Atomic Checkpoint State Manager (watermark_state.json): Zero record loss on crash           |
-+-----------------------------------------------------------------------------------------------+
-                                               |
-                                               v
-+-----------------------------------------------------------------------------------------------+
-| RAW STORAGE (GCS / Local Data Lake)                                                           |
-| - Immutable partitioned JSON snapshots: raw/year=YYYY/month=MM/day=DD/batch_*.json            |
-| - Cloud Storage lifecycle rules: Standard -> Nearline (90d) -> Coldline (365d)                |
-+-----------------------------------------------------------------------------------------------+
-                                               |
-                                               v
-+-----------------------------------------------------------------------------------------------+
-| TRANSFORMATION ENGINE (PySpark 4.x / DuckDB)                                                  |
-| 1. Data Quality Firewall: Chicago geo bounding box, temporal consistency, identity checks     |
-| 2. Dead-Letter Queue (DLQ): Auto-quarantining invalid records with failure codes              |
-| 3. Change Detection: SHA-256 fingerprinting (record_hash) across mutable business fields     |
-| 4. Deduplication: Windowing over service_request_id and last_modified_date                    |
-| 5. SCD Type 2 Engine: Generates status history dimension with durations and versioning        |
-| 6. Late-Arriving Data Handling: Resequences out-of-order events chronologically               |
-+-----------------------------------------------------------------------------------------------+
-                                               |
-                                               v
-+-----------------------------------------------------------------------------------------------+
-| WAREHOUSE LAYER (BigQuery Medallion Architecture)                                             |
-| - BRONZE: bronze_service_requests (Partitioned by ingestion date, clustered by request ID)     |
-| - SILVER: silver_service_requests (Cleansed current state, extended_attributes JSON)           |
-| - SILVER SCD2: dim_service_request_status_history (Chronological status intervals)            |
-| - GOLD MARTS:                                                                                 |
-|   * gold_resolution_time_by_category (Avg, median, p90 resolution hours)                       |
-|   * gold_agency_backlog (Unresolved backlog by ageing brackets: <7d, 7-30d, 31-90d, >90d)     |
-|   * gold_geographic_hotspots (Recurring failure densities by Ward & Zip Code)                 |
-|   * gold_longest_resolving_complaints (Extreme bottleneck cases)                              |
-|   * gold_reopened_analysis (Complaint recidivism rates by agency)                             |
-+-----------------------------------------------------------------------------------------------+
-                                               |
-                                               v
-+-----------------------------------------------------------------------------------------------+
-| PRESENTATION LAYER (React & JavaScript Executive Dashboard)                                   |
-| - Interactive Chicago Leaflet Map (OpenStreetMap - ZERO API KEY REQUIRED)                      |
-| - Interactive SCD Type 2 Journey Visualizer (Day 1: Open -> Day 2: In Progress -> Day 5: Done)|
-| - Real-time KPI Scorecards (Backlog, Avg Hours, Reopened Rate)                                |
-| - Data Quality Quarantine Inspector & Pipeline Health Monitor                                 |
-+-----------------------------------------------------------------------------------------------+
-```
-
----
+<img width="670" height="372" alt="Screenshot 2026-11-20 162154" src="https://github.com/user-attachments/assets/55c9b4d9-3347-47b0-86d6-2a40b0653837" />
 
 ## 🖥️ React Executive Dashboard Preview
 
-![CivicPulse Dashboard Preview](docs/images/dashboard_preview.svg)
+<img width="957" height="460" alt="Screenshot 2026-11-20 162008" src="https://github.com/user-attachments/assets/a30e3216-610a-44df-9ea5-318bd64acefb" />
+
 
 ---
 
